@@ -1,31 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Todo Items</h1>
+<h1>My Todo Items</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Description</th>
+      <!-- <th>Description</th>
       <th>Starred</th>
       <th>Hidden</th>
-      <th colspan="3"></th>
+      <th colspan="3"></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @todo_items.each do |todo_item| %>
-      <tr>
-        <td><%= todo_item.description %></td>
-        <td><%= todo_item.starred %></td>
-        <td><%= todo_item.hidden %></td>
-        <td><%= link_to 'Show', todo_item %></td>
-        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
-        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class = "item">
+
+        <nav><%= todo_item.description %></nav>
+
+        <nav>
+          <% if todo_item.starred %>
+          <p> <img src = "https://upload.wikimedia.org/wikipedia/en/e/e5/Yellow_Star.png" </p>
+          <% end %>
+        </nav>
+
+        <nav>
+          <% if todo_item.hidden %>
+          <strike> hidden </strike>
+          <% end %>
+        </nav>
+        <nav><%= link_to 'Show', todo_item %></nav>
+        <nav><%= link_to 'Edit', edit_todo_item_path(todo_item) %></nav>
+        <nav><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></nav>
+
+
+    </div>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class = "NewTodo">
 
 <%= link_to 'New Todo item', new_todo_item_path %>
+</div>

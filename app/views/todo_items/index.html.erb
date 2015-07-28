@@ -16,8 +16,11 @@
     <% @todo_items.each do |todo_item| %>
     <div class = "item">
 
-        <nav><%= todo_item.description %></nav>
-
+        <nav><% if todo_item.hidden %></nav>
+            <strike>  <%= todo_item.description %></strike>
+            <%else%>
+            <%= todo_item.description%>
+            <%end%>
         <nav>
           <% if todo_item.starred %>
           <p> <img src = "https://upload.wikimedia.org/wikipedia/en/e/e5/Yellow_Star.png" </p>
@@ -26,11 +29,11 @@
 
         <nav>
           <% if todo_item.hidden %>
-          <strike> hidden </strike>
+          <!-- <strike> <%= todo_item %> </strike> -->
           <% end %>
         </nav>
         <button id="hide">Hide</button>
-        <button id="show">Show</button>
+        <button id="show">Menu</button>
         <p><%= link_to 'Show', todo_item %></p>
         <p><%= link_to 'Edit', edit_todo_item_path(todo_item) %></p>
         <p><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
@@ -43,5 +46,5 @@
 
 <div class = "NewTodo">
 
-<%= link_to 'New Todo item', new_todo_item_path %>
+<%= link_to image_tag("addicon.png", alt: "New Todo item", class: "add"), new_todo_item_path %>
 </div>

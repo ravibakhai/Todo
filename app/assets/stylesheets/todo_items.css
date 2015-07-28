@@ -56,3 +56,9 @@ body {
   margin: 0;
   padding 0;
 }
+
+.NewTodo {
+
+  position: relative;
+  left: -30em;
+}

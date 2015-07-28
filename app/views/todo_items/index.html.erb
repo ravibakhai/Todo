@@ -29,9 +29,11 @@
           <strike> hidden </strike>
           <% end %>
         </nav>
-        <nav><%= link_to 'Show', todo_item %></nav>
-        <nav><%= link_to 'Edit', edit_todo_item_path(todo_item) %></nav>
-        <nav><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></nav>
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+        <p><%= link_to 'Show', todo_item %></p>
+        <p><%= link_to 'Edit', edit_todo_item_path(todo_item) %></p>
+        <p><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 
     </div>
